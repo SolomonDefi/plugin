@@ -1,0 +1,51 @@
+{
+  "name": "solomon-plugin",
+  "version": "0.1.0",
+  "private": "false",
+  "description": "Solomon Vue3 plugin",
+  "license": "GPL-3.0-or-later",
+  "author": "Solomon Defi",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/solomon-plugin.umd.js",
+  "module": "./dist/solomon-plugin.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/solomon-plugin.es.js",
+      "require": "./dist/solomon-plugin.umd.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite serve",
+    "build": "vite build",
+    "lint": "./node_modules/eslint/bin/eslint.js --ext .js,.vue --ignore-pattern node_modules/",
+    "lint:style": "./node_modules/stylelint/bin/stylelint.js \"**/**/*.{css,vue}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/solomondefi/solomon-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/solomondefi/solomon-plugin/issues"
+  },
+  "homepage": "https://github.com/solomondefi/solomon-plugin#readme",
+  "devDependencies": {
+    "@intlify/eslint-plugin-vue-i18n": "^0.10.0",
+    "@vitejs/plugin-vue": "^1.1.4",
+    "@vue/compiler-sfc": "^3.0.5",
+    "eslint": "^7.20.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-vue": "^7.6.0",
+    "postcss": "^8.2.6",
+    "postcss-import": "^14.0.0",
+    "postcss-modules": "^4.0.0",
+    "postcss-nested": "^5.0.3",
+    "postcss-simple-vars": "^6.0.3",
+    "stylelint": "^13.10.0",
+    "stylelint-config-standard": "^20.0.0",
+    "vite": "^2.0.3",
+    "vue": "^3.0.5",
+    "vue-i18n": "^9.0.0-rc.8"
+  }
+}

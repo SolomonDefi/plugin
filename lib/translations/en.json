@@ -1,0 +1,28 @@
+{
+  "title": "Solomon Payments",
+  "secure": "Protected by Solomon",
+  "solomon": "SOLOMON",
+  "chargebacks": {
+      "label": "DIRECT CHARGE",
+      "select": "Select your cryptocurrency below:",
+      "select_label": "Select Crypto",
+      "schedule": "Schedule",
+      "protection": "Charge Protection",
+      "price": "Price",
+      "usd_price": "USD Price",
+      "currency": {
+          "SLM": "Solomon (SLM)",
+          "ETH": "Ethereum (ETH)" 
+      }
+  },
+  "preorder": {
+      "label": "PREORDER",
+      "select": "Prepay for a future delivery:"
+  },
+  "escrow": {
+      "label": "ESCROW",
+      "enter": "Place funds into escrow"
+  },
+  "continue": "CONTINUE SHOPPING",
+  "confirm": "CONFIRM"
+}

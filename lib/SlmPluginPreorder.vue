@@ -68,6 +68,7 @@
 <script>
 export default {
   name: 'slm-plugin-preorder',
+  inject: ['$t', '$tm'],
   props: {
     prices: {
       type: Object,

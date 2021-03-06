@@ -43,6 +43,7 @@
 
 export default {
   name: 'slm-plugin-chargebacks',
+  inject: ['$t', '$tm'],
   props: {
     prices: {
       type: Object,

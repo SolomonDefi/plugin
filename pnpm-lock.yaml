@@ -4,34 +4,42 @@ importers:
       '@intlify/eslint-plugin-vue-i18n': 0.11.0_eslint@7.21.0
       '@vitejs/plugin-vue': 1.1.5_@vue+compiler-sfc@3.0.7
       '@vue/compiler-sfc': 3.0.7_vue@3.0.7
+      autoprefixer: 10.2.5_postcss@8.2.7
       eslint: 7.21.0
       eslint-plugin-import: 2.22.1_eslint@7.21.0
       eslint-plugin-vue: 7.7.0_eslint@7.21.0
       postcss: 8.2.7
       postcss-import: 14.0.0_postcss@8.2.7
+      postcss-mixins: 7.0.3_postcss@8.2.7
       postcss-modules: 4.0.0_postcss@8.2.7
       postcss-nested: 5.0.5_postcss@8.2.7
       postcss-simple-vars: 6.0.3_postcss@8.2.7
       stylelint: 13.11.0
       stylelint-config-standard: 20.0.0_stylelint@13.11.0
       vite: 2.0.5
+      vite-plugin-components: 0.8.0_vite@2.0.5
+      vite-plugin-vue-images: 0.5.0
       vue: 3.0.7
       vue-i18n: 9.0.0_vue@3.0.7
     specifiers:
       '@intlify/eslint-plugin-vue-i18n': ^0.11.0
       '@vitejs/plugin-vue': ^1.1.5
       '@vue/compiler-sfc': ^3.0.7
+      autoprefixer: ^10.2.5
       eslint: ^7.21.0
       eslint-plugin-import: ^2.22.1
       eslint-plugin-vue: ^7.7.0
       postcss: ^8.2.7
       postcss-import: ^14.0.0
+      postcss-mixins: ^7.0.3
       postcss-modules: ^4.0.0
       postcss-nested: ^5.0.5
       postcss-simple-vars: ^6.0.3
       stylelint: ^13.11.0
       stylelint-config-standard: ^20.0.0
       vite: ^2.0.5
+      vite-plugin-components: ^0.8.0
+      vite-plugin-vue-images: ^0.5.0
       vue: ^3.0.7
       vue-i18n: ^9.0.0
 lockfileVersion: 5.2
@@ -305,6 +313,19 @@ packages:
       node: '>= 10'
     resolution:
       integrity: sha512-HH05+lD4A9q6F0VLbGY5eZmmCbfaBMuCSSQXmrGgegtsRVu7WFiUMQLNsouN1UtHabOJC9PQarxKwfTzdHyN6Q==
+  /@knightly/fast-glob/3.2.5-knightly-master.202101180131:
+    dependencies:
+      '@nodelib/fs.stat': 2.0.4
+      '@nodelib/fs.walk': 1.2.6
+      glob-parent: 5.1.1
+      merge2: 1.4.1
+      micromatch: 4.0.2
+      picomatch: 2.2.2
+    dev: true
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-zf9RptV5EYbjpfrOB3EYA2M2QhTuM0fnU0OxmLrcOAKLmBzJ0p/2910I1sS2U5XjXIzV4N2/It95ztLedz4/+A==
   /@nodelib/fs.scandir/2.1.4:
     dependencies:
       '@nodelib/fs.stat': 2.0.4
@@ -323,7 +344,7 @@ packages:
   /@nodelib/fs.walk/1.2.6:
     dependencies:
       '@nodelib/fs.scandir': 2.1.4
-      fastq: 1.10.1
+      fastq: 1.11.0
     dev: true
     engines:
       node: '>= 8'
@@ -526,6 +547,15 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==
+  /anymatch/3.1.1:
+    dependencies:
+      normalize-path: 3.0.0
+      picomatch: 2.2.2
+    dev: true
+    engines:
+      node: '>= 8'
+    resolution:
+      integrity: sha512-mM8522psRCqzV+6LhomX5wgp25YVibjh8Wj23I5RPkPppSVSjyKD2A2mBJmWGa+KN7f2D6LNh9jkBCeyLktzjg==
   /argparse/1.0.10:
     dependencies:
       sprintf-js: 1.0.3
@@ -576,6 +606,23 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-Z7tMw1ytTXt5jqMcOP+OQteU1VuNK9Y02uuJtKQ1Sv69jXQKKg5cibLwGJow8yzZP+eAc18EmLGPal0bp36rvQ==
+  /autoprefixer/10.2.5_postcss@8.2.7:
+    dependencies:
+      browserslist: 4.16.3
+      caniuse-lite: 1.0.30001196
+      colorette: 1.2.2
+      fraction.js: 4.0.13
+      normalize-range: 0.1.2
+      postcss: 8.2.7
+      postcss-value-parser: 4.1.0
+    dev: true
+    engines:
+      node: ^10 || ^12 || >=14
+    hasBin: true
+    peerDependencies:
+      postcss: ^8.1.0
+    resolution:
+      integrity: sha512-7H4AJZXvSsn62SqZyJCP+1AWwOuoYpUfK6ot9vm0e87XD6mT8lDywc9D9OTJPMULyGcvmIxzTAMeG2Cc+YX+fA==
   /autoprefixer/9.8.6:
     dependencies:
       browserslist: 4.16.3
@@ -601,6 +648,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-vyL2OymJxmarO8gxMr0mhChsO9QGwhynfuu4+MHTAW6czfq9humCB7rKpUjDd9YUiDPU4mzpyupFSvOClAwbmQ==
+  /binary-extensions/2.2.0:
+    dev: true
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==
   /bluebird/3.7.2:
     dev: true
     resolution:
@@ -622,11 +675,11 @@ packages:
       integrity: sha512-b8um+L1RzM3WDSzvhm6gIz1yfTbBt6YTlcEKAvsmqCZZFw46z626lVj9j1yEPW33H5H+lBQpZMP1k8l+78Ha0A==
   /browserslist/4.16.3:
     dependencies:
-      caniuse-lite: 1.0.30001185
+      caniuse-lite: 1.0.30001196
       colorette: 1.2.2
-      electron-to-chromium: 1.3.661
+      electron-to-chromium: 1.3.682
       escalade: 3.1.1
-      node-releases: 1.1.70
+      node-releases: 1.1.71
     dev: true
     engines:
       node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7
@@ -646,6 +699,12 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==
+  /camelcase-css/2.0.1:
+    dev: true
+    engines:
+      node: '>= 6'
+    resolution:
+      integrity: sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==
   /camelcase-keys/6.2.2:
     dependencies:
       camelcase: 5.3.1
@@ -666,6 +725,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-Fpi4kVNtNvJ15H0F6vwmXtb3tukv3Zg3qhKkOGUq7KJ1J6b9kf4dnNgtEAFXhRsJo0gNj9W60+wBvn0JcTvdTg==
+  /caniuse-lite/1.0.30001196:
+    dev: true
+    resolution:
+      integrity: sha512-CPvObjD3ovWrNBaXlAIGWmg2gQQuJ5YhuciUOjPRox6hIQttu8O+b51dx6VIpIY9ESd2d0Vac1RKpICdG4rGUg==
   /chalk/2.4.2:
     dependencies:
       ansi-styles: 3.2.1
@@ -697,6 +760,22 @@ packages:
     dev: true
     resolution:
       integrity: sha512-mKKUkUbhPpQlCOfIuZkvSEgktjPFIsZKRRbC6KWVEMvlzblj3i3asQv5ODsrwt0N3pHAEvjP8KTQPHkp0+6jOg==
+  /chokidar/3.5.1:
+    dependencies:
+      anymatch: 3.1.1
+      braces: 3.0.2
+      glob-parent: 5.1.1
+      is-binary-path: 2.1.0
+      is-glob: 4.0.1
+      normalize-path: 3.0.0
+      readdirp: 3.5.0
+    dev: true
+    engines:
+      node: '>= 8.10.0'
+    optionalDependencies:
+      fsevents: 2.3.2
+    resolution:
+      integrity: sha512-9+s+Od+W0VJJzawDma/gvBNQqkTiqYTWLuZoyAsivsI4AaWTCzHG06/TMjsf1cYe9Cb97UCEhjz7HvnPk2p/tw==
   /clone-regexp/2.2.0:
     dependencies:
       is-regexp: 2.1.0
@@ -807,6 +886,19 @@ packages:
         optional: true
     resolution:
       integrity: sha512-doEwdvm4PCeK4K3RQN2ZC2BYUBaxwLARCqZmMjtF8a51J2Rb0xpVloFRnCODwqjpwnAoao4pelN8l3RJdv3gRQ==
+  /debug/4.3.2:
+    dependencies:
+      ms: 2.1.2
+    dev: true
+    engines:
+      node: '>=6.0'
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+    resolution:
+      integrity: sha512-mOp8wKcvj7XxC78zLgw/ZA+6TSgkoE2C/ienthhRD298T7UNwAg9diBpLRxC0mOezLl4B0xV7M0cCO6P/O0Xhw==
   /decamelize-keys/1.1.0:
     dependencies:
       decamelize: 1.2.0
@@ -887,10 +979,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-Lgd2XcJ/NjEw+7tFvfKxOzCYKZsdct5lczQ2ZaQY8Djz7pfAD3Gbp8ySJWtreII/vDlMVmxwa6pHmdxIYgttDg==
-  /electron-to-chromium/1.3.661:
+  /electron-to-chromium/1.3.682:
     dev: true
     resolution:
-      integrity: sha512-INNzKoL9ceOpPCpF5J+Fp9AOHY1RegwKViohAyTzV3XbkuRUx04r4v8edsDbevsog8UuL0GvD/Qerr2HwVTlSA==
+      integrity: sha512-zok2y37qR00U14uM6qBz/3iIjWHom2eRfC2S1StA0RslP7x34jX+j4mxv80t8OEOHLJPVG54ZPeaFxEI7gPrwg==
   /emoji-regex/8.0.0:
     dev: true
     resolution:
@@ -1205,12 +1297,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-On2N+BpYJ15xIC974QNVuYGMOlEVt4s0EOI3wwMqOmK1fdDY+FN/zltPV8vosq4ad4c/gJ1KHScUn/6AWIgiow==
-  /fastq/1.10.1:
+  /fastq/1.11.0:
     dependencies:
       reusify: 1.0.4
     dev: true
     resolution:
-      integrity: sha512-AWuv6Ery3pM+dY7LYS8YIaCiQvUaos9OB1RyNgaOWnaX+Tik7Onvcsf8x8c+YtDeT0maYLniBip2hox5KtEXXA==
+      integrity: sha512-7Eczs8gIPDrVzT+EksYBcupqMyxSHXXrHOLRRxU2/DicV8789MRBRR8+Hc2uWzUupOs4YS4JzBmBxjjCVBxD/g==
   /file-entry-cache/6.0.0:
     dependencies:
       flat-cache: 3.0.4
@@ -1265,6 +1357,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-zAoAQiudy+r5SvnSw3KJy5os/oRJYHzrzja/tBDqrZtNhUw8bt6y8OBzMWcjWr+8liV8Eb6yOhw8WZ7VFZ5ZzA==
+  /fraction.js/4.0.13:
+    dev: true
+    resolution:
+      integrity: sha512-E1fz2Xs9ltlUp+qbiyx9wmt2n9dRzPsS11Jtdb8D2o+cC7wr9xkkKsVKJuBX0ST+LVS+LhLO+SbLJNtfWcJvXA==
   /fs.realpath/1.0.0:
     dev: true
     resolution:
@@ -1545,6 +1641,14 @@ packages:
     dev: true
     resolution:
       integrity: sha1-d8mYQFJ6qOyxqLppe4BkWnqSap0=
+  /is-binary-path/2.1.0:
+    dependencies:
+      binary-extensions: 2.2.0
+    dev: true
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-ZMERYes6pDydyuGidse7OsHxtbI7WVeUEozgR/g7rd0xUimYNlvZRE/K2MgZTjWy725IfelLeVcEM97mmtRGXw==
   /is-buffer/2.0.5:
     dev: true
     engines:
@@ -1961,10 +2065,10 @@ packages:
     dev: true
     resolution:
       integrity: sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
-  /node-releases/1.1.70:
+  /node-releases/1.1.71:
     dev: true
     resolution:
-      integrity: sha512-Slf2s69+2/uAD79pVVQo8uSiC34+g8GWY8UH2Qtqv34ZfhYrxpYpfzs9Js9d6O0mbDmALuxaTlplnBTnSELcrw==
+      integrity: sha512-zR6HoT6LrLCRBwukmrVbHv0EpEQjksO6GmFcZQQuCAy139BEsoVKPYnf3jongYW83fAa1torLGYwxxky/p28sg==
   /normalize-package-data/2.5.0:
     dependencies:
       hosted-git-info: 2.8.8
@@ -1985,6 +2089,12 @@ packages:
       node: '>=10'
     resolution:
       integrity: sha512-6lUjEI0d3v6kFrtgA/lOx4zHCWULXsFNIjHolnZCKCTLA6m/G625cdn3O7eNmT0iD3jfo6HZ9cdImGZwf21prw==
+  /normalize-path/3.0.0:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==
   /normalize-range/0.1.2:
     dev: true
     engines:
@@ -2214,7 +2324,7 @@ packages:
       postcss: 8.2.7
       postcss-value-parser: 4.1.0
       read-cache: 1.0.0
-      resolve: 1.19.0
+      resolve: 1.20.0
     dev: true
     engines:
       node: '>=10.0.0'
@@ -2222,6 +2332,15 @@ packages:
       postcss: ^8.0.0
     resolution:
       integrity: sha512-gFDDzXhqr9ELmnLHgCC3TbGfA6Dm/YMb/UN8/f7Uuq4fL7VTk2vOIj6hwINEwbokEmp123bLD7a5m+E+KIetRg==
+  /postcss-js/3.0.3:
+    dependencies:
+      camelcase-css: 2.0.1
+      postcss: 8.2.7
+    dev: true
+    engines:
+      node: '>=10.0'
+    resolution:
+      integrity: sha512-gWnoWQXKFw65Hk/mi2+WTQTHdPD5UJdDXZmX073EY/B3BWnYjO4F4t0VneTCnCGQ5E5GsCdMkzPaTXwl3r5dJw==
   /postcss-less/3.1.4:
     dependencies:
       postcss: 7.0.35
@@ -2234,6 +2353,20 @@ packages:
     dev: true
     resolution:
       integrity: sha1-J7Ocb02U+Bsac7j3Y1HGCeXO8kQ=
+  /postcss-mixins/7.0.3_postcss@8.2.7:
+    dependencies:
+      globby: 11.0.2
+      postcss: 8.2.7
+      postcss-js: 3.0.3
+      postcss-simple-vars: 6.0.3_postcss@8.2.7
+      sugarss: 3.0.3
+    dev: true
+    engines:
+      node: '>=10.0'
+    peerDependencies:
+      postcss: ^8.2.0
+    resolution:
+      integrity: sha512-YLiJbOBiFmj3dX0gfo74fPDKtRvcQSntzgyqwD1noW1dne6sAJkuCtoOlGaFX8dLxcv9+qkOA6Uh1Ae0/6C56w==
   /postcss-modules-extract-imports/3.0.0_postcss@8.2.7:
     dependencies:
       postcss: 8.2.7
@@ -2470,6 +2603,14 @@ packages:
       node: '>= 6'
     resolution:
       integrity: sha512-BViHy7LKeTz4oNnkcLJ+lVSL6vpiFeX6/d3oSH8zCW7UxP2onchk+vTGB143xuFjHS3deTgkKoXXymXqymiIdA==
+  /readdirp/3.5.0:
+    dependencies:
+      picomatch: 2.2.2
+    dev: true
+    engines:
+      node: '>=8.10.0'
+    resolution:
+      integrity: sha512-cMhu7c/8rdhkHXWsY+osBhfSy0JikwpHK/5+imo+LpeasTF8ouErHrlYkwT0++njiyuDvc7OFY5T3ukvZ8qmFQ==
   /redent/3.0.0:
     dependencies:
       indent-string: 4.0.0
@@ -2536,6 +2677,13 @@ packages:
     dev: true
     resolution:
       integrity: sha512-rArEXAgsBG4UgRGcynxWIWKFvh/XZCcS8UJdHhwy91zwAvCZIbcs+vAbflgBnNjYMs/i/i+/Ux6IZhML1yPvxg==
+  /resolve/1.20.0:
+    dependencies:
+      is-core-module: 2.2.0
+      path-parse: 1.0.6
+    dev: true
+    resolution:
+      integrity: sha512-wENBPt4ySzg4ybFQW2TT1zMQucPK95HSh/nq2CFTZVOGut2+pQvSsgtda4d26YrYcr067wjbmzOG8byDPBX63A==
   /reusify/1.0.4:
     dev: true
     engines:
@@ -2813,6 +2961,14 @@ packages:
     dev: true
     resolution:
       integrity: sha512-WfxjozUk0UVA4jm+U1d736AUpzSrNsQcIbyOkoE364GrtWmIrFdk5lksEupgWMD4VaT/0kVx1dobpiDumSgmJQ==
+  /sugarss/3.0.3:
+    dependencies:
+      postcss: 8.2.7
+    dev: true
+    engines:
+      node: '>=10.0'
+    resolution:
+      integrity: sha512-uxa2bbuc+w7ov7DyYIhF6bM0qZF3UkFT5/nE8AJgboiVnKsBDbwxs++dehEIe1JNhpMaGJc37wGQ2QrrWey2Sg==
   /supports-color/5.5.0:
     dependencies:
       has-flag: 3.0.0
@@ -2989,6 +3145,25 @@ packages:
     dev: true
     resolution:
       integrity: sha512-O6AE4OskCG5S1emQ/4gl8zK586RqA3srz3nfK/Viy0UPToBc5Trp9BVFb1u0CjsKrAWwnpr4ifM/KBXPWwJbCA==
+  /vite-plugin-components/0.8.0_vite@2.0.5:
+    dependencies:
+      chokidar: 3.5.1
+      debug: 4.3.2
+      fast-glob: /@knightly/fast-glob/3.2.5-knightly-master.202101180131
+      minimatch: 3.0.4
+      vite: 2.0.5
+    dev: true
+    peerDependencies:
+      vite: ^2.0.0-beta.69
+    resolution:
+      integrity: sha512-VpYIffUxj1CiBUok41xJJV2dc9tI7MSrHM7oSJKSD0CT5SKwxXh+T+WesEP1Ey42vlofup0Lovwmk648Ms/vuw==
+  /vite-plugin-vue-images/0.5.0:
+    dependencies:
+      debug: 4.3.2
+      fast-glob: 3.2.5
+    dev: true
+    resolution:
+      integrity: sha512-3RimpR/KFJvFHhBBo6WRhQmBp2riTN4HhP/nV1O00/thQ1tR/NY6MU7l/i7ap4PIoKoV+N5O1k34B7+0gAjvNw==
   /vite/2.0.5:
     dependencies:
       esbuild: 0.8.56

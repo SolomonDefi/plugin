@@ -16,7 +16,7 @@
               :class="{ active: type.name === plugin }"
               @click="selectType(types[plugin])"
             >
-              {{ $t(`plugin.${plugin}.label`) }}
+              {{ $t(`${plugin}.label`) }}
             </div>
           </div>
           <div
@@ -57,13 +57,16 @@
 </template>
 
 <script>
-import IcLock from '/lib/assets/img/ic_lock.png';
-
+import i18n from './i18n';
 const plugins = ['chargebacks', 'preorder', 'escrow'];
 
 export default {
   name: 'slm-plugin',
   emits: ['cancel'],
+  provide: {
+    '$t': i18n.global.t,
+    '$tm': i18n.global.tm,
+  },
   props: {
     show: Boolean,
     initialType: {
@@ -97,7 +100,8 @@ export default {
       },
     };
     return {
-      IcLock,
+      '$t': i18n.global.t,
+      '$tm': i18n.global.tm,
       types,
       plugins,
       type: types[this.initialType || 'chargebacks'],

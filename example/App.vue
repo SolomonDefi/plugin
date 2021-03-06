@@ -10,9 +10,6 @@
           How would you like to pay?
         </div>
       </div>
-      <div class="checkout-express title">
-        Express checkout
-      </div>
       <div class="payment-options">
         <div class="payment-solomon title" @click="showPlugin('chargebacks')">
           <img :src="SolomonImg">
@@ -63,27 +60,34 @@ export default {
 
 <style lang="postcss">
 
+html,body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  background-color: #f9f9f9;
+
+  color: black;
+  * {
+    box-sizing: border-box;
+  }
+}
 .container {
   max-width: 900px;
   margin: 0 auto;
-  padding-top: 24px;
+  padding-top: 48px;
   display: flex;
+  justify-content: center;
 }
 .title {
   font-family: Arial, sans-serif;
   font-weight: 700;
 }
 .checkout {
-  background-color: #f9f9f9;
   text-align: center;
-}
-.checkout-express {
-  font-size: 18px;
-  margin: 8px 0;
-  color: #3c3d41;
 }
 .payment-options {
   display: flex;
+  margin-top: 24px;
 }
 .payment-options > div {
   height: 38px;

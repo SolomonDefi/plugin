@@ -6,7 +6,6 @@ $bg-light: #f9f9f9;
 $bg-grey: #838d8f;
 
 $purple: #8d49ec;
-$card-blue: #286cc3;
 
 $text-dark: #3c3d41;
 $text-dark2: #3a3d3f;
@@ -15,9 +14,6 @@ $text-med: #908e8e;
 $text-med2: #b2b2b2;
 
 $border-med: #d8d8d8;
-
-$paypal-light: #0079c1;
-$card-blue: #286cc3;
 
 @define-mixin title-bold {
   font-family: 'Montserrat', 'Avenir', 'sans-serif';
@@ -95,20 +91,4 @@ $card-blue: #286cc3;
   padding: 8px 10px;
   min-width: 48px;
   position: relative;
-}
-
-@define-mixin product-size {
-  @mixin text-regular 11px;
-  @mixin flex-center;
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-  border: 1px solid #4d4e53;
-}
-
-.page-fade-enter-active, .page-fade-leave-active {
-  transition: opacity 0.25s linear;
-}
-.page-fade-enter-from, .page-fade-leave-to {
-  opacity: 0;
 }

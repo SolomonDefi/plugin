@@ -9,6 +9,7 @@ module.exports = {
       entry: path.resolve(__dirname, 'lib/main.js'),
       name: 'SolomonPlugin'
     },
+    assetsInlineLimit: 0,
     rollupOptions: {
       // Externalize deps that aren't bundled into the library
       external: ['vue'],

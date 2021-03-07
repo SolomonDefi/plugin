@@ -15,14 +15,9 @@ $text-med2: #b2b2b2;
 
 $border-med: #d8d8d8;
 
-@define-mixin title-bold {
+@define-mixin title $size {
   font-family: 'Montserrat', 'Avenir', 'sans-serif';
   font-weight: 700;
-}
-
-@define-mixin title-semibold $size {
-  font-family: 'Montserrat', 'Avenir', 'sans-serif';
-  font-weight: 600;
   font-size: $size;
 }
 
@@ -41,29 +36,6 @@ $border-med: #d8d8d8;
 @define-mixin text-regular $size {
   font-family: 'PTSerif', sans-serif;
   font-weight: 400;
-  font-size: $size;
-}
-
-@define-mixin text-italic $size {
-  font-family: 'PTSerif', sans-serif;
-  font-weight: 400;
-  font-style: italic;
-  font-size: $size;
-}
-
-@define-mixin text-medium $size {
-  font-family: 'PTSerif', sans-serif;
-  font-weight: 500;
-  font-size: $size;
-}
-
-@define-mixin title $size {
-  @mixin title-bold;
-  font-size: $size;
-}
-
-@define-mixin title2 $size {
-  @mixin title-semibold;
   font-size: $size;
 }
 

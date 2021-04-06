@@ -4,22 +4,22 @@
     <div class="checkout-payment">
       <div class="section-head">
         <div class="head-line1 title">
-          Payment Method
+          Solomon Plugin Example
         </div>
         <div class="head-line2 title">
-          How would you like to pay?
+          Configure and run the plugin.
         </div>
       </div>
       <div class="payment-options">
-        <div class="payment-solomon title" @click="showPlugin('chargebacks')">
-          <img :src="SolomonImg">
-          SOLOMON
-        </div>
-        <div class="payment-paypal">
-          <img :src="PaypalImg">
-        </div>
-        <div class="payment-card title">
-          Credit Card
+        <div
+          v-for="(plugin, idx) in plugins"
+          :key="idx"
+        >
+          <Checkbox v-model="plugin.checked" class="slm-check" :label="`Enable ${plugin.name}`" />
+          <div v-if="plugin.checked" class="payment-solomon title" @click="showPlugin(plugin.name)">
+            {{ plugin.name }}
+          </div>
+          <div v-else />
         </div>
       </div>
     </div>
@@ -27,6 +27,7 @@
   <SlmPlugin
     :show="!!paymentType"
     :initialType="paymentType"
+    :availableTypes="enabled"
     :priceUsdCents="500"
     @cancel="paymentType = null"
   />
@@ -34,21 +35,34 @@
 </template>
 
 <script>
-import SlmPlugin from '/lib/SlmPlugin.vue';
+import { SlmPlugin } from '/dist/plugin.es.js';
+import Checkbox from './Checkbox.vue';
 import SolomonImg from '/example/img/solomon_white.png';
-import PaypalImg from '/example/img/paypal.png';
 
 export default {
   name: 'checkout',
   components: {
     SlmPlugin,
+    Checkbox,
   },
   data() {
     return {
       SolomonImg,
-      PaypalImg,
       paymentType: null,
+      plugins: [
+        { name: 'chargebacks', checked: true },
+        { name: 'preorder', checked: true },
+        { name: 'escrow', checked: true },
+      ],
+      enableChargebacks: true,
+      enablePreorder: true,
+      enableEscrow: true,
     };
+  },
+  computed: {
+    enabled() {
+      return this.plugins.filter(p => p.checked).map(p => p.name);
+    },
   },
   methods: {
     showPlugin(type) {
@@ -59,7 +73,7 @@ export default {
 </script>
 
 <style lang="postcss">
-@import '../dist/font.css';
+@import '/dist/font.css';
 
 html,body {
   padding: 0;
@@ -79,6 +93,9 @@ html,body {
   display: flex;
   justify-content: center;
 }
+.checkout-payment {
+  width: 680px;
+}
 .title {
   font-family: Arial, sans-serif;
   font-weight: 700;
@@ -86,27 +103,41 @@ html,body {
 .checkout {
   text-align: center;
 }
+.slm-checks {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-around;
+}
 .payment-options {
   display: flex;
-  margin-top: 24px;
+  margin-top: 16px;
+}
+.slm-check {
+  align-self: center;
 }
 .payment-options > div {
-  height: 38px;
-  width: 220px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 4px;
+  flex-direction: column;
+  justify-content: flex-start;
   cursor: pointer;
+  flex-grow: 1;
 }
 .payment-options > div:not(:last-child) {
   margin-right: 16px;
 }
 .payment-solomon {
+  display: flex;
   background-color: #141414;
   font-size: 15px;
   letter-spacing: 1.4px;
+  height: 38px;
+  width: 100%;
+  text-transform: uppercase;
+  border-radius: 4px;
+  align-items: center;
+  justify-content: center;
   color: white;
+  margin-top: 8px;
 }
 .payment-solomon> img {
   height: 22px;

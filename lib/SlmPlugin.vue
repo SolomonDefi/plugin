@@ -58,7 +58,7 @@
 
 <script>
 import i18n from './i18n';
-const plugins = ['chargebacks', 'preorder', 'escrow'];
+const allPlugins = ['chargebacks', 'preorder', 'escrow'];
 
 export default {
   name: 'slm-plugin',
@@ -71,9 +71,15 @@ export default {
     show: Boolean,
     initialType: {
       validator: value => (
-        plugins.indexOf(value) !== -1
+        allPlugins.includes(value)
       ),
       default: 'solomon',
+    },
+    availableTypes: {
+      validator: value => (
+        (value === null) || (Array.isArray(value) && value.every(v => allPlugins.includes(v)))
+      ),
+      default: null,
     },
     store: {
       type: Object,
@@ -103,11 +109,13 @@ export default {
       '$t': i18n.global.t,
       '$tm': i18n.global.tm,
       types,
-      plugins,
-      type: types[this.initialType || 'chargebacks'],
+      type: types[this.initialType || (this.availableTypes || allPlugins)[0]],
     };
   },
   computed: {
+    plugins() {
+      return this.availableTypes || allPlugins;
+    },
     priceCents() {
       return this.store ? this.store.totalPrice.value : this.priceUsdCents;
     },

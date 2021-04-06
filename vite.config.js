@@ -1,5 +1,6 @@
 const path = require('path');
 import Vue from '@vitejs/plugin-vue';
+import copy from 'rollup-plugin-copy';
 import ViteComponents from 'vite-plugin-components';
 import ViteImages from 'vite-plugin-vue-images';
 
@@ -19,6 +20,13 @@ module.exports = {
           vue: 'Vue',
         },
       },
+      plugins: [
+        copy({
+          targets: [
+            { src: 'lib/assets/css/global.css', dest: 'dist/postcss/' },
+          ],
+        }),
+      ],
     },
   },
   plugins: [

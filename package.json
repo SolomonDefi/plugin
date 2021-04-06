@@ -1,5 +1,5 @@
 {
-  "name": "solomon-plugin",
+  "name": "@solomon/plugin",
   "version": "0.1.0",
   "private": "false",
   "description": "Solomon Vue3 plugin",
@@ -8,12 +8,12 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/solomon-plugin.umd.js",
-  "module": "./dist/solomon-plugin.es.js",
+  "main": "./dist/plugin.umd.js",
+  "module": "./dist/plugin.es.js",
   "exports": {
     ".": {
-      "import": "./dist/solomon-plugin.es.js",
-      "require": "./dist/solomon-plugin.umd.js"
+      "import": "./dist/plugin.es.js",
+      "require": "./dist/plugin.umd.js"
     }
   },
   "scripts": {

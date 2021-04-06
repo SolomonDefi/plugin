@@ -156,7 +156,6 @@ export default {
 </script>
 
 <style lang="postcss">
-@import '/lib/assets/css/font.css';
 @import '/lib/assets/css/global.css';
 
 .slm-plugin-modal {

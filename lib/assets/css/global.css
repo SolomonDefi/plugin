@@ -16,25 +16,25 @@ $text-med2: #b2b2b2;
 $border-med: #d8d8d8;
 
 @define-mixin title $size {
-  font-family: 'Montserrat', 'Avenir', 'sans-serif';
+  font-family: 'SlmTitle', 'Avenir', 'sans-serif';
   font-weight: 700;
   font-size: $size;
 }
 
 @define-mixin title-medium $size {
-  font-family: 'Montserrat', 'Avenir', 'sans-serif';
+  font-family: 'SlmTitle', 'Avenir', 'sans-serif';
   font-weight: 500;
   font-size: $size;
 }
 
 @define-mixin title-regular $size {
-  font-family: 'Montserrat', 'Avenir', 'sans-serif';
+  font-family: 'SlmTitle', 'Avenir', 'sans-serif';
   font-weight: 400;
   font-size: $size;
 }
 
 @define-mixin text-regular $size {
-  font-family: 'PTSerif', sans-serif;
+  font-family: 'SlmText', sans-serif;
   font-weight: 400;
   font-size: $size;
 }

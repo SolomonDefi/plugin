@@ -1,6 +1,6 @@
 
 @font-face {
-  font-family: 'Montserrat';
+  font-family: 'SlmTitle';
   src:
     url('/fonts/Montserrat-Regular.woff2') format('woff2'),
     url('/fonts/Montserrat-Regular.woff') format('woff'),
@@ -10,7 +10,7 @@
 }
 
 @font-face {
-  font-family: 'Montserrat';
+  font-family: 'SlmTitle';
   src:
     url('/fonts/Montserrat-Medium.woff2') format('woff2'),
     url('/fonts/Montserrat-Medium.woff') format('woff'),
@@ -20,7 +20,7 @@
 }
 
 @font-face {
-  font-family: 'Montserrat';
+  font-family: 'SlmTitle';
   src:
     url('/fonts/Montserrat-Bold.woff2') format('woff2'),
     url('/fonts/Montserrat-Bold.woff') format('woff'),
@@ -30,7 +30,7 @@
 }
 
 @font-face {
-  font-family: 'PTSerif';
+  font-family: 'SlmText';
   src:
     url('/fonts/PTSerif-Regular.woff2') format('woff2'),
     url('/fonts/PTSerif-Regular.woff') format('woff'),

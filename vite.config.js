@@ -7,7 +7,7 @@ module.exports = {
   build: {
     lib: {
       entry: path.resolve(__dirname, 'lib/main.js'),
-      name: 'SolomonPlugin'
+      name: 'SolomonPlugin',
     },
     assetsInlineLimit: 0,
     rollupOptions: {

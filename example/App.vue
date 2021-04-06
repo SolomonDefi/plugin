@@ -59,6 +59,7 @@ export default {
 </script>
 
 <style lang="postcss">
+@import '../dist/font.css';
 
 html,body {
   padding: 0;

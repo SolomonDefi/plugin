@@ -1,7 +1,6 @@
 {
-  "name": "@solomon/plugin",
+  "name": "@solomondefi/plugin",
   "version": "0.1.0",
-  "private": "false",
   "description": "Solomon Frontend plugin",
   "license": "GPL-3.0-or-later",
   "author": "Solomon Defi",

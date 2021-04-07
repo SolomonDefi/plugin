@@ -1,10 +1,6 @@
 dist/
 coverage/
-example/dist/
 node_modules/
-tests/e2e/videos/
-tests/e2e/screenshots/
-tests/unit/coverage/
 
 *.lock
 .nyc_output

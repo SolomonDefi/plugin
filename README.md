@@ -20,11 +20,11 @@ npm i -S @solomondefi/plugin
 
 ### Without Bundler (Browser)
 
-It is recommended to download the distribution and copy `plugin.min.js` into your project.
+It is recommended to download the distribution and copy `plugin.umd.js` into your project.
 
 For testing and prototyping, you can include it from the Unpkg CDN:
 ```
-<script src="https://unpkg.com/@solomondefi/plugin@0.1.0/dist/plugin.min.js>
+<script src="https://unpkg.com/@solomondefi/plugin@0.1.0/dist/plugin.umd.js>
 ```
 
 ## Usage
@@ -107,11 +107,11 @@ Another option is to manually define the necessary typefaces before including th
 }
 ```
 
-## Example
+## Examples
 
-See the `example` directory.
+See the `examples` directory.
 
-Run locally:
+Run Vue3 example:
 
 ```
 npm run dev

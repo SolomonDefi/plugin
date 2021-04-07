@@ -37,7 +37,7 @@
 <script>
 import { SlmPlugin } from '/dist/plugin.es.js';
 import Checkbox from './Checkbox.vue';
-import SolomonImg from '/example/img/solomon_white.png';
+import SolomonImg from './img/solomon_white.png';
 
 export default {
   name: 'checkout',

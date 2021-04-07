@@ -23,8 +23,9 @@ module.exports = {
       plugins: [
         copy({
           targets: [
-            { src: 'lib/assets/css/global.css', dest: 'dist/postcss/' },
+            { src: 'lib/assets/css/global.css', dest: 'dist/postcss' },
           ],
+          hook: 'writeBundle',
         }),
       ],
     },

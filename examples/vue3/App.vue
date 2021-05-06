@@ -10,13 +10,21 @@
           Configure and run the plugin.
         </div>
       </div>
+      <div class="payment-amount">
+        <div>Charge Amount (USD)</div>
+        <SlmInput v-model="price" />
+      </div>
       <div class="payment-options">
         <div
           v-for="(plugin, idx) in plugins"
           :key="idx"
         >
           <Checkbox v-model="plugin.checked" class="slm-check" :label="`Enable ${plugin.name}`" />
-          <div v-if="plugin.checked" class="payment-solomon title" @click="showPlugin(plugin.name)">
+          <div
+            v-if="plugin.checked"
+            class="payment-solomon title"
+            @click="paymentType = plugin.name"
+          >
             {{ plugin.name }}
           </div>
           <div v-else />
@@ -28,15 +36,17 @@
     :show="!!paymentType"
     :initialType="paymentType"
     :availableTypes="enabled"
-    :priceUsdCents="500"
+    :priceUsdCents="priceCents"
     @cancel="paymentType = null"
   />
 </div>
 </template>
 
 <script>
+import { ref, computed } from 'vue';
 import { SlmPlugin } from '/dist/plugin.es.js';
 import Checkbox from './Checkbox.vue';
+import SlmInput from './SlmInput.vue';
 import SolomonImg from './img/solomon_white.png';
 
 export default {
@@ -44,30 +54,39 @@ export default {
   components: {
     SlmPlugin,
     Checkbox,
+    SlmInput,
   },
-  data() {
+  setup() {
+    const price = ref('5');
+    const paymentType = ref(null);
+    const enableChargebacks = ref(true);
+    const enablePreorder = ref(true);
+    const enableEscrow = ref(true);
+    const priceCents = computed(() => {
+      if(isNaN(price.value)) {
+        return 0;
+      }
+      return parseFloat(price.value) * 100;
+    });
+    const plugins = ref([
+      { name: 'chargebacks', checked: true },
+      { name: 'preorder', checked: true },
+      { name: 'escrow', checked: true },
+    ]);
+    const enabled = computed(() => (
+      plugins.value.filter(p => p.checked).map(p => p.name)
+    ));
     return {
       SolomonImg,
-      paymentType: null,
-      plugins: [
-        { name: 'chargebacks', checked: true },
-        { name: 'preorder', checked: true },
-        { name: 'escrow', checked: true },
-      ],
-      enableChargebacks: true,
-      enablePreorder: true,
-      enableEscrow: true,
+      paymentType,
+      price,
+      priceCents,
+      enableChargebacks,
+      enablePreorder,
+      enableEscrow,
+      enabled,
+      plugins,
     };
-  },
-  computed: {
-    enabled() {
-      return this.plugins.filter(p => p.checked).map(p => p.name);
-    },
-  },
-  methods: {
-    showPlugin(type) {
-      this.paymentType = type;
-    },
   },
 };
 </script>
@@ -114,6 +133,19 @@ html,body {
 }
 .slm-check {
   align-self: center;
+}
+.payment-amount {
+  margin-top: 24px;
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+  font-weight: 500;
+  .slm-input-wrap {
+    max-width: 200px;
+    margin: 16px auto;
+    .slm-input {
+      height: 48px;
+    }
+  }
 }
 .payment-options > div {
   display: flex;

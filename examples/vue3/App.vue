@@ -204,4 +204,13 @@ html,body {
   margin-top: 2px;
   color: #b2b2b2;
 }
+@media (max-width: 600px) {
+  .payment-options {
+    padding: 0 8px;
+  }
+  .payment-solomon {
+    font-size: 12px;
+    letter-spacing: 1.2px;
+  }
+}
 </style>

@@ -1,19 +1,18 @@
-
-$main-dark: #2e2e30;
+/* Theme colors */
 $main-blue: #1476f1;
-
-$bg-light: #f9f9f9;
-$bg-grey: #838d8f;
-
 $purple: #8d49ec;
 
-$text-dark: #3c3d41;
-$text-dark2: #3a3d3f;
-$text-dark3: #4d4e53;
-$text-med: #908e8e;
-$text-med2: #b2b2b2;
+/* Text and border colors */
+$grey1: #3c3d41;
+$disabled1: #908e8e;
+$grey5: #b2b2b2;
 
-$border-med: #d8d8d8;
+/* Background colors */
+$bg1: #838d8f;
+$bg2: #eeeeee;
+$bg3: #f0f3f4;
+
+$border1: #d8d8d8;
 
 @define-mixin title $size {
   font-family: 'SlmTitle', 'Avenir', 'sans-serif';
@@ -33,7 +32,7 @@ $border-med: #d8d8d8;
   font-size: $size;
 }
 
-@define-mixin text-regular $size {
+@define-mixin text $size {
   font-family: 'SlmText', sans-serif;
   font-weight: 400;
   font-size: $size;
@@ -58,8 +57,8 @@ $border-med: #d8d8d8;
   @mixin flex-center;
   border-radius: 4px;
   background-color: #eee;
-  box-shadow: inset 0 1px #d5d5d5;
-  color: #3c3d41;
+  box-shadow: inset 0 1px $border1;
+  color: $grey1;
   padding: 8px 10px;
   min-width: 48px;
   position: relative;

@@ -80,7 +80,7 @@ export default {
   width: 100%;
   .caret {
     margin-top: 4px;
-    border-color: $text-dark3;
+    border-color: $grey1;
   }
 }
 .slm-select {
@@ -92,9 +92,9 @@ export default {
   &.disabled {
     cursor: default;
     background-color: #ddd;
-    color: $text-med;
+    color: $disabled1;
     .slm-select-value .caret {
-      border-color: $text-med;
+      border-color: $disabled1;
     }
   }
 }
@@ -108,7 +108,11 @@ export default {
   justify-content: flex-start;
   height: 34px;
   padding: 0 16px;
-  background-color: #eee;
+  background-color: $bg2;
+  border-top: 1px solid $border1;
+  &:hover {
+    background-color: $bg3;
+  }
 }
 .slm-select-enter-active, .slm-select-leave-active {
   transition: all 250ms;

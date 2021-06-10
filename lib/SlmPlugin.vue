@@ -25,18 +25,20 @@
           />
         </div>
         <div class="slm-plugin-content-wrap">
-          <SlmPluginChargebacks
-            v-if="type.name === 'chargebacks'"
-            :prices="prices"
-          />
-          <SlmPluginPreorder
-            v-if="type.name === 'preorder'"
-            :prices="prices"
-          />
-          <SlmPluginEscrow
-            v-if="type.name === 'escrow'"
-            :prices="prices"
-          />
+          <transition name="plugin-content" mode="out-in">
+            <SlmPluginChargebacks
+              v-if="type.name === 'chargebacks'"
+              :prices="prices"
+            />
+            <SlmPluginPreorder
+              v-else-if="type.name === 'preorder'"
+              :prices="prices"
+            />
+            <SlmPluginEscrow
+              v-else-if="type.name === 'escrow'"
+              :prices="prices"
+            />
+          </transition>
           <div class="slm-plugin-secure">
             <img :src="IcLock">
             <div>{{ $t('secure') }}</div>
@@ -171,17 +173,19 @@ export default {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
+  max-height: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: flex-start;
+  padding-bottom: 40px;
   .slm-plugin-mask {
     background: rgba(0, 0, 0, 0.8);
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
   }
   .slm-plugin-wrap {
     position: relative;
@@ -189,6 +193,10 @@ export default {
     background: white;
     display: flex;
     border-radius: 4px;
+    margin-top: 5%;
+    max-height: 90%;
+    overflow-y: scroll;
+    box-shadow: 0 2px 15px 12px rgba(150, 150, 150, 0.2);
   }
   .slm-plugin {
     flex: 1;
@@ -199,8 +207,9 @@ export default {
     @mixin flex-center;
     @mixin title 24px;
     height: 80px;
+    min-height: 80px;
     border-bottom: 1px solid #eee;
-    color: $text-dark2;
+    color: $grey1;
   }
   .slm-plugin-types-wrap {
     position: relative;
@@ -208,7 +217,7 @@ export default {
   .slm-plugin-types {
     @mixin flex-center;
     @mixin title 11px;
-    color: $bg-grey;
+    color: $bg1;
     letter-spacing: 2px;
     height: 56px;
     > div {
@@ -233,82 +242,91 @@ export default {
     position: absolute;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 10px solid $text-dark;
+    border-bottom: 10px solid $grey1;
     transition: left 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
   .slm-plugin-type {
     height: 48px;
     display: flex;
   }
+  .plugin-content-enter-active,
+  .plugin-content-leave-active {
+      transition: opacity 0.35s ease;
+  }
+
+  .plugin-content-enter-from,
+  .plugin-content-leave-to {
+      opacity: 0;
+  }
   .slm-plugin-content-wrap {
-    background-color: $text-dark;
+    background-color: $grey1;
     transition: height 0.3s;
-    .slm-plugin-content-title {
-      @mixin text-regular 17px;
-      @mixin flex-center;
-      color: $bg-grey;
-      height: 96px;
-    }
-    .slm-plugin-content {
-      width: 340px;
-      height: 184px;
-      margin: 0 auto;
-      @mixin flex-center-col;
-      background-color: white;
-      border-radius: 4px;
-      padding: 32px 16px 32px 8px;;
-      .slm-plugin-content-row {
-        display: flex;
-        width: 100%;
-        &:not(:first-child) {
-          margin-top: 9px;
-        }
-      }
-      .slm-plugin-select-title {
-        @mixin flex-center;
-        @mixin title-regular 12px;
-        justify-content: flex-end;
-        color: $text-dark;
-        height: 34px;
-        width: 120px;
-        margin-right: 8px;
-      }
-      .slm-plugin-row-right {
-        @mixin flex-center;
-        @mixin title-medium 15px;
-        color: $text-dark3;
-        justify-content: flex-start;
-        flex-grow: 1;
-      }
-      .slm-plugin-price {
-        @mixin select;
-        flex-grow: 1;
-        position: relative;
-        justify-content: flex-start;
-        .slm-plugin-currency {
-          @mixin title 13px;
-          color: $text-med2;
-          position: absolute;
-          right: 8px;
-          top: 10px;
-        }
-      }
-      .slm-plugin-month, .slm-plugin-year {
-        margin-right: 6px;
-      }
-      .slm-plugin-year {
-        flex-grow: 1;
+  }
+  .slm-plugin-content-title {
+    @mixin text 17px;
+    @mixin flex-center;
+    color: $bg1;
+    height: 96px;
+  }
+  .slm-plugin-content {
+    width: 340px;
+    height: 184px;
+    margin: 0 auto;
+    @mixin flex-center-col;
+    background-color: white;
+    border-radius: 4px;
+    padding: 32px 16px 32px 8px;;
+    .slm-plugin-content-row {
+      display: flex;
+      width: 100%;
+      &:not(:first-child) {
+        margin-top: 9px;
       }
     }
-    .slm-plugin-secure {
-      @mixin text-regular 13px;
+    .slm-plugin-select-title {
       @mixin flex-center;
-      color: $bg-grey;
-      margin: 32px 0;
-      img {
-        height: 18px;
-        margin-right: 8px;
+      @mixin title-regular 12px;
+      justify-content: flex-end;
+      color: $grey1;
+      height: 34px;
+      width: 120px;
+      margin-right: 8px;
+    }
+    .slm-plugin-row-right {
+      @mixin flex-center;
+      @mixin title-medium 15px;
+      color: $grey1;
+      justify-content: flex-start;
+      flex-grow: 1;
+    }
+    .slm-plugin-price {
+      @mixin select;
+      flex-grow: 1;
+      position: relative;
+      justify-content: flex-start;
+      .slm-plugin-currency {
+        @mixin title 13px;
+        color: $disabled1;
+        position: absolute;
+        right: 8px;
+        top: 10px;
       }
+    }
+    .slm-plugin-month, .slm-plugin-year {
+      margin-right: 6px;
+    }
+    .slm-plugin-year {
+      flex-grow: 1;
+    }
+  }
+  .slm-plugin-secure {
+    @mixin text 13px;
+    @mixin flex-center;
+    color: $bg1;
+    margin: 32px 0;
+    img {
+      height: 18px;
+      margin-right: 8px;
     }
   }
   .slm-plugin-buttons {
@@ -325,13 +343,29 @@ export default {
       cursor: pointer;
     }
     .slm-plugin-continue {
-      color: $text-dark;
-      border: 1px solid $border-med;
+      color: $grey1;
+      border: 1px solid $border1;
       margin-right: 16px;
     }
     .slm-plugin-confirm {
       background-color: $purple;
       color: white;
+    }
+  }
+  @media (max-width: 600px) {
+    padding-left: 16px;
+    padding-right: 16px;
+    .slm-plugin-types {
+      font-size: 10px;
+      > div {
+        width: min-content;
+      }
+    }
+    .slm-plugin-content {
+      width: 100%;
+    }
+    .slm-plugin-buttons > div {
+      padding: 0 12px;
     }
   }
 }

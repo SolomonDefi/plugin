@@ -46,7 +46,7 @@ export default {
 </script>
 
 <style lang="postcss">
-@import '/dist/postcss/global.css';
+@import '/lib/assets/css/global.css';
 
 .slm-checkbox {
   display: flex;
@@ -70,7 +70,7 @@ export default {
     height: 16px;
     width: 16px;
     background-color: #fff;
-    border: 1px solid $text-dark;
+    border: 1px solid $grey1;
     display: flex;
     flex-shrink: 0;
     align-items: center;
